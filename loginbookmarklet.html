@@ -1,0 +1,69 @@
+<html>
+<head>
+  <title>プリマジ マイページ</title>
+  <script language="javascript" type="text/javascript">
+    function generate(){
+      const pid = document.getElementById("ProfileCardID").value;
+      const pname = document.getElementById("PlayerName").value;
+      const pbd = document.getElementById("Birthday").value;
+      const textData = `javascript:(function () {
+  const data = { 'ProfileCardID': '${pid}', 'PlayerName': '${pname}', 'Birthday': '${pbd}' }
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = 'https://primagi.jp/mypage/login/';
+  for (let d in data) {
+    let input = document.createElement('input');
+    input.name = \`val[\${d}]\`;
+    input.value = data[d];
+    form.appendChild(input);
+  }
+  document.body.appendChild(form);
+  form.submit();
+})();
+`;
+      const result = encodeURI(textData);
+      document.getElementById('result').textContent = result;
+    }
+
+    function copyResult(){
+      navigator.clipboard.writeText(document.getElementById('result').textContent);
+    }
+  </script>
+</head>
+
+<body>
+  <form>
+    <table>
+      <tr>
+        <td style="text-align: right;">
+          <label>ID:</label>
+        </td>
+        <td>
+          <input id="ProfileCardID" type="text" placeholder="ABCDEFG-ABCDEFG">
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: right;">
+          <label>名前:</label>
+        </td>
+        <td>
+          <input id="PlayerName" type="text" placeholder="まつり">
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: right;">
+          <label>誕生日:</label>
+        </td>
+        <td>
+          <input id="Birthday" type="text" placeholder="8/8">
+        </td>
+      </tr>
+    </table>
+    <input type="button" value="ブックマークレット生成" onclick="generate()">
+  </form>
+  <br>
+  <p>このページをブックマークし、アドレスを生成された結果に編集してください</p>
+  <label>結果</label> <input type="button" value="結果をコピー" onclick="copyResult()"><br>
+  <textarea readonly id="result" cols="50" rows="20"></textarea>
+</body>
+</html>
