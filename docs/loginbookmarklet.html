@@ -32,7 +32,16 @@
 </head>
 
 <body>
-  <h2>プリマジ　マイページログイン用ブックマークレット生成</h2>
+  <h2>プリマジ マイページログイン用ブックマークレット生成</h2>
+  <h4>つかいかた</h4>
+  <ol>
+    <li>下のフォームに情報を入力する</li>
+    <li>「ブックマークレット生成」ボタンを押す</li>
+    <li>生成されたコードをコピーする</li>
+    <li>このページをブックマーク(任意のページでよい)する</li>
+    <li>作ったブックマークのアドレスをコピーしたコードに編集する</li>
+    <li>作ったブックマークを叩けばログインできる</li>
+  </ol>
   <form>
     <table>
       <tr>
@@ -62,7 +71,7 @@
     </table>
     <input type="button" value="ブックマークレット生成" onclick="generate()">
   </form>
-  <p>このページをブックマークし、アドレスを生成された結果に編集してください</p>
+  <br>
   <label>結果</label> <input type="button" value="結果をコピー" onclick="copyResult()"><br>
   <textarea readonly id="result" cols="50" rows="20"></textarea>
 </body>
