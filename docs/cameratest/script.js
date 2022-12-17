@@ -54,9 +54,7 @@ function cont(facingMode) {
   });
 };
 
-cont({
-  exact: 'environment'
-});
+cont('environment');
 
 
 
