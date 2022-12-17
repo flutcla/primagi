@@ -49,6 +49,7 @@ function cont(facingMode) {
     }, 200);
   }).catch(e => {
     console.log(e);
+    alert('背面カメラが見つかりませんでした');
     cont("user");
   });
 };
